@@ -24,7 +24,7 @@ export const useStage = (player, resetPlayer) => {
         row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell))
       );
 
-      // Then draw the tetromino
+      // A continuación, dibuja el tetromino
       player.tetromino.forEach((row, y) => {
         row.forEach((value, x) => {
           if (value !== 0) {
@@ -35,7 +35,7 @@ export const useStage = (player, resetPlayer) => {
           }
         });
       });
-      // Then check if we got some score if collided
+      // Comprueba si obtuvimos alguna puntuación si juntamos
       if (player.collided) {
         resetPlayer();
         return sweepRows(newStage);
@@ -43,7 +43,7 @@ export const useStage = (player, resetPlayer) => {
       return newStage;
     };
 
-    // Here are the updates
+    // Aquí están las actualizaciones
     setStage(prev => updateStage(prev));
   }, [
     player.collided,
